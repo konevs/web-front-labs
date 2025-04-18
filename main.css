@@ -65,11 +65,11 @@ div.menu {
     margin: 0 auto;
     padding: 15px;
     text-align: center;
-    background: lightgray;
+    background: rgb(17, 119, 227);
     box-shadow: 5px 5px 10px black;
     transition: 0.3;
 }
 div.menu:hover {
-    background-color: darkgray;
+    background-color: rgb(85, 170, 235);
     box-shadow: black;
 }
