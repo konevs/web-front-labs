@@ -59,21 +59,17 @@ a:active {
 }
 
 div.menu {
-    border: 7px solid #eb0ebb80;
+    border: 7px solid;
     border-radius: 5px;
     width: 300px;
     margin: 0 auto;
-}
-
-div.menu:hover {
-    background-color: #387cd480 ;
-    box-shadow: 0 0 15px #2258ef80;
-}
-
-h1 {
+    padding: 15px;
     text-align: center;
+    background: lightgray;
+    box-shadow: 5px 5px 10px black;
+    transition: 0.3;
 }
-
-main {
-    margin: 10px 20px 45px
+div.menu:hover {
+    background-color: darkgray;
+    box-shadow: black;
 }
