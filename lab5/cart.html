@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конев Станислав Сергеевич. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nКонев Станислав Сергеевич';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'таровчэк,,,'
+            alert(footer);
+        }
+        function clearCart() {
+            document.getElementById('productJuice').value = '';
+            document.getElementById('productKurt').value = '';
+            document.getElementById('productTomato').value = '';
+            document.getElementById('productWatermelon').value = '';
+            document.getElementById('productBanana').value = '';
+            document.getElementById('total').textContent = '';
+        }
+        function calculateTotal() {
+            let total = 0;
+            const inputs = document.querySelectorAll(".product input[type='number']");
+            inputs.forEach(input => {
+                price = parseInt(input.dataset.price);
+                quantity = parseInt(input.value);
+                total += price * quantity;
+            });
+            document.getElementById("total").textContent = 'Общая цена: ' + total + ' Рублей';
+        }
+    </script>
+    <style>
+        .message{
+        cursor: pointer;
+        display: inline-block;
+        width: 250px;
+        height: 30px;
+        border-radius: 5%;
+        border: 5px solid;
+        text-align: center;
+        line-height: 30px;
+        background-color: rgb(81, 241, 228);
+        border-color: rgb(0, 0, 0);
+        }
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
+        }
+        .cart {
+            background-color: rgb(84, 156, 250);
+            border: 1px solid black;
+            padding: 20px;
+            max-width: 400px;
+            margin: 30px 0 30px 30px;
+            border-radius: 8px;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .product label {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: bold;
+        }
+        .product input[type="number"] {
+            width: 200px;
+            padding: 7px;
+            margin-left: 20px;
+        }
+        button {
+            padding: 8px 60px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        #total {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>   
+    
+    <main>
+        <div class="cart">
+            <div class="product">
+                <label>Сок (200р/шт): <input type="number" min="0" data-price="200" id="productJuice" placeholder="Введите количество упаковок"></label>
+            </div>
+            <div class="product">
+                <label>Курт (120р/шт): <input type="number" min="0" data-price="120" id="productKurt" placeholder="Введите количество курта"></label>
+            </div>
+            <div class="product">
+                <label>Помидор (110р/шт): <input type="number" min="0" data-price="110" id="productTomato" placeholder="Введите количество помидор"></label>
+            </div>
+            <div class="product">
+                <label>Арбуз (500р/шт): <input type="number" min="0" data-price="500" id="productWatermelon" placeholder="Введите количество арбузов"></label>
+            </div>
+            <div class="product">
+                <label>Бананы (50р/шт): <input type="number" min="0" data-price="50" id="productBanana" placeholder="Введите количество бананов"></label>
+            </div>
+
+            <button onclick="calculateTotal()">Рассчитать</button>
+            <button onclick="clearCart()">Очистить</button>
+            
+            <div id="total"></div>
+        </div>  
+    </main>
+
+    <footer ondblclick="showFooter()">
+        &copy; Конев Станислав, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
