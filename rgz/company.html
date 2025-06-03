@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="promomed.jpg" type="image/x-icon">
+  <title>ПАО Промомед — О компании</title>
+  <script>
+    window.addEventListener('scroll', () => {
+        const toTop = document.querySelector('.to-top');
+        if (window.scrollY > 300) {
+            toTop.classList.add('show');
+        } else {
+            toTop.classList.remove('show');
+        }
+    });
+  </script> 
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      line-height: 1.6;
+      height: 100%;
+    }
+    body {
+      display: flex;
+    }
+    nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 220px;
+      background-color: #1e90ff;
+      color: white;
+      padding: 20px 0;
+      overflow-y: auto;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+    nav ul li {
+      text-align: center;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      padding: 15px 10px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav ul li a.active,
+    nav ul li a:hover {
+      background-color: white;
+      color: #1e90ff;
+    }
+    .content-wrapper {
+      margin-left: 220px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    header {
+      background-color: #1e90ff;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    header h1 {
+      margin: 0 0 5px 0;
+    }
+    header h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+    }
+    main {
+      padding: 20px 40px;
+    }
+    section {
+      background-color: white;
+      padding: 30px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    h2 {
+      color: #1e90ff;
+      text-align: center;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 3px;
+      background-color: #1e90ff;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    p strong {
+      font-weight: bold;
+    }
+    p em {
+      font-style: italic;
+    }
+    p u {
+      text-decoration: underline;
+    }
+    figure {
+      margin: 30px auto;
+      text-align: center;
+    }
+    figure img {
+      border-radius: 10px;
+      max-width: 90%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    figure img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    figcaption {
+      margin-top: 10px;
+      font-style: italic;
+      color: #333;
+    }
+    .logo-small {
+      max-width: 150px;
+    }
+    .to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background-color: blue;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .to-top.show {
+      display: block;
+    }
+
+    .to-top:hover {
+      background-color: white;
+      color: #1e90ff;
+      transform: translateY(-3px);
+    }
+    footer {
+      background-color: #1e90ff;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="company.html" class="active">О компании</a></li>
+      <li><a href="news.html">Новости</a></li>
+      <li><a href="products.html">Курс валют</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+      <li><a href="media.html">Видео</a></li>
+    </ul>
+  </nav>
+
+  <div class="content-wrapper">
+    <header>
+      <h1>ПАО Промомед</h1>
+      <h2>Фармацевтические решения для будущего</h2>
+    </header>
+
+    <main>
+      <section>
+        <h2>История компании</h2>
+        <p><strong>ПАО Промомед</strong> — <em>одна из ведущих</em> фармацевтических компаний России, начавшая свою деятельность в <u>2000 году</u>. Основателями стали российские предприниматели и специалисты фармацевтической отрасли с целью создать эффективную альтернативу импортным препаратам.</p>
+        <p>Первоначально компания занималась дистрибуцией, а с <strong>2005 года</strong> перешла к <u>полному производственному циклу</u>. Это стало возможным благодаря строительству современного завода в Пензенской области.</p>
+        <figure>
+          <img src="factory.jpg" alt="Производство Промомед">
+          <figcaption>Производственный комплекс Промомед</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Направления деятельности</h2>
+        <p>ПАО Промомед разрабатывает и производит препараты для лечения:</p>
+        <ul>
+          <li><strong>инфекционных заболеваний</strong>, включая COVID-19;</li>
+          <li><u>онкологических и кардиологических</u> патологий;</li>
+          <li><em>неврологических и психических расстройств</em>;</li>
+          <li>болевого синдрома и хронических состояний;</li>
+          <li>госпитального сегмента — препараты для стационаров и экстренной помощи.</li>
+        </ul>
+        <p>Также <a href="https://promomed.ru" target="_blank">компания </a> активно развивает направление экспорта и сотрудничает с зарубежными медицинскими организациями.</p>
+        <figure>
+          <img src="lab.jpg" alt="Научные исследования Промомед">
+          <figcaption>Исследовательские лаборатории компании</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Современные достижения</h2>
+        <p>Сегодня Промомед:</p>
+        <ul>
+          <li>внедряет <strong>технологии искусственного интеллекта</strong> в разработку лекарств;</li>
+          <li>обладает сертификацией <u>GMP международного уровня</u>;</li>
+          <li>поставляет продукцию в более чем <em>20 стран</em> мира;</li>
+          <li>реализует программы <strong>импортозамещения</strong> в рамках национальных проектов;</li>
+          <li>поддерживает отечественную науку и ведёт <u>инновационные клинические исследования</u>.</li>
+        </ul>
+        <figure>
+          <img src="team.jpg" alt="Команда Промомед">
+          <figcaption>Команда специалистов Промомед</figcaption>
+        </figure>
+      </section>
+    </main>
+  
+    <button class="to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">▲</button>
+
+    <footer>
+      &copy; 2025 ПАО «Промомед». Все права защищены.
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="promomed.jpg" type="image/x-icon">
+  <title>Новости — Промомед</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      line-height: 1.6;
+      height: 100%;
+    }
+    body {
+      display: flex;
+    }
+    nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 220px;
+      background-color: #1e90ff;
+      color: white;
+      padding: 20px 0;
+      overflow-y: auto;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+    nav ul li {
+      text-align: center;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      padding: 15px 10px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav ul li a.active,
+    nav ul li a:hover {
+      background-color: white;
+      color: #1e90ff;
+    }
+    .content-wrapper {
+      margin-left: 220px;
+      flex: 1;
+      padding: 20px 40px;
+    }
+    header {
+      background-color: #1e90ff;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    main {
+      padding: 20px 40px;
+    }
+    section {
+      background-color: white;
+      padding: 30px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    h1, h2 {
+      color: #1e90ff;
+      text-align: center;
+    }
+    .news-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .news-date {
+      color: gray;
+      font-size: 0.9em;
+    }
+    .news-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #1e90ff;
+    }
+    .news-preview {
+      margin-top: 10px;
+    }
+    .news-full {
+      display: none;
+      margin-top: 10px;
+    }
+    .show-btn {
+      margin-top: 10px;
+      background-color: #1e90ff;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #1e90ff;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="company.html">О компании</a></li>
+      <li><a href="news.html" class="active">Новости</a></li>
+      <li><a href="products.html">Курсы валют</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+      <li><a href="media.html">Видео</a></li>
+    </ul>
+  </nav>
+
+  <div class="content-wrapper">
+    <main>
+      <section id="news-container"></section>
+    </main>
+    <footer>
+      &copy; 2025 ПАО «Промомед». Все права защищены.
+    </footer>
+  </div>
+
+  <script>
+    const newsData = [
+        {
+            date: "2025-05-30",
+            title: "Промомед открыл новый цех производства антибиотиков",
+            preview: "В Пензе завершено строительство современного цеха для выпуска антибиотиков...",
+            full: `На территории индустриального парка в Пензе завершено строительство нового цеха по производству антибиотиков. Проект реализован с применением высокотехнологичного оборудования, соответствующего стандартам GMP.
+        Цех позволит выпускать более 100 млн упаковок препаратов в год, что покрывает около 30% потребностей внутреннего рынка.
+        Создано более 200 рабочих мест, внедрена автоматизированная система контроля качества, проект поддержан Фондом развития промышленности.`
+        },
+        {
+            date: "2025-05-25",
+            title: "Промомед на международной выставке в Дюссельдорфе",
+            preview: "Компания представила новые разработки в сфере онкопрепаратов...",
+            full: `На выставке MED-TECH Expo в Дюссельдорфе компания Промомед представила сразу три новых препарата, предназначенных для лечения онкологических заболеваний.
+        Разработки вызвали интерес у партнёров из Германии, Франции и Южной Кореи.
+        "Мы видим огромный экспортный потенциал наших разработок и намерены масштабировать производство," — заявил гендиректор компании.`
+        },
+        {
+            date: "2025-05-20",
+            title: "Партнёрство с индийским фармпроизводителем",
+            preview: "Промомед подписал соглашение с компанией из Индии...",
+            full: `Подписано стратегическое партнёрство между ПАО «Промомед» и IndoBio Remedies. Стороны намерены совместно производить генерические препараты, а также исследовать новые молекулы.
+        Ключевые направления сотрудничества: технологический обмен, разработка противоопухолевых средств, выход на рынки Азии и Африки.`
+        },
+        {
+            date: "2025-05-15",
+            title: "Запуск производства инсулина в России",
+            preview: "Компания начала выпуск отечественного инсулина...",
+            full: `В рамках программы импортозамещения Промомед начал производство высокоэффективного инсулина отечественного производства.
+        Проект реализуется при поддержке Минпромторга России и позволяет обеспечить лекарственной безопасностью пациентов с диабетом по всей стране.
+        Особенности нового инсулина: продолжительное действие, удобная дозировка, доступная цена.`
+        },
+        {
+            date: "2025-05-10",
+            title: "Получение международной сертификации ISO 9001",
+            preview: "Система качества прошла аудит и сертификацию...",
+            full: `Компания успешно прошла сертификацию ISO 9001, подтвердив соответствие своей системы менеджмента качества международным стандартам.
+        Это откроет новые рынки для компании и повысит уровень доверия со стороны зарубежных партнёров.
+        "Качество — это не цель, а постоянный процесс совершенствования."`
+        },
+        {
+            date: "2025-04-30",
+            title: "Промомед поддержал научную конференцию молодых исследователей",
+            preview: "Компания стала генеральным партнёром конференции, прошедшей в Санкт-Петербурге...",
+            full: `Промомед выступил генеральным партнёром научной конференции, в которой приняли участие более 500 студентов и аспирантов.
+        На мероприятии были представлены доклады сотрудников компании по клиническим исследованиям и новым технологиям в производстве лекарств.`
+        },
+        {
+            date: "2025-04-20",
+            title: "Новое лекарство от мигрени получило одобрение Минздрава",
+            preview: "Разработка компании успешно прошла все стадии испытаний...",
+            full: `Министерство здравоохранения официально одобрило новый препарат компании Промомед для лечения острой и хронической мигрени.
+        Средство доказало свою эффективность в ходе тройных слепых клинических испытаний и вскоре поступит в аптеки по всей России.`
+        },
+        {
+            date: "2025-04-10",
+            title: "Компания увеличила экспорт на 25%",
+            preview: "По итогам первого квартала 2025 года экспорт вырос на четверть...",
+            full: `В первом квартале 2025 года объёмы экспорта Промомед выросли на 25%, что стало рекордным показателем за последние три года.
+        Основные поставки направлялись в страны СНГ, Ближнего Востока и Юго-Восточной Азии.`
+        },
+        {
+            date: "2025-03-25",
+            title: "Промомед провёл благотворительную акцию для больниц",
+            preview: "Более 5000 упаковок препаратов было передано в медицинские учреждения...",
+            full: `В рамках программы корпоративной социальной ответственности Промомед организовал масштабную акцию помощи медицинским учреждениям.
+        Более 5000 упаковок жизненно важных лекарств были переданы в 12 регионов страны.`
+        },
+        {
+            date: "2025-03-10",
+            title: "Разработка на основе ИИ привлекла инвестиции",
+            preview: "Инновационный проект компании получил финансирование в размере 200 млн рублей...",
+            full: `Промомед разработал нейросетевую платформу для моделирования взаимодействия молекул, что позволило привлечь инвестиции в размере 200 млн рублей.
+        Проект поддержан Фондом инновационного развития и получил высокую оценку научного сообщества.`
+        }
+        ];
+
+    const container = document.getElementById('news-container');
+    newsData.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'news-card';
+
+      const date = document.createElement('div');
+      date.className = 'news-date';
+      date.textContent = item.date;
+
+      const title = document.createElement('div');
+      title.className = 'news-title';
+      title.textContent = item.title;
+
+      const preview = document.createElement('div');
+      preview.className = 'news-preview';
+      preview.textContent = item.preview;
+
+      const full = document.createElement('div');
+      full.className = 'news-full';
+      full.textContent = item.full;
+
+      const btn = document.createElement('button');
+      btn.className = 'show-btn';
+      btn.textContent = 'Показать';
+      btn.onclick = () => {
+        full.style.display = full.style.display === 'block' ? 'none' : 'block';
+        btn.textContent = full.style.display === 'block' ? 'Скрыть' : 'Показать';
+      };
+
+      card.appendChild(date);
+      card.appendChild(title);
+      card.appendChild(preview);
+      card.appendChild(full);
+      card.appendChild(btn);
+
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
