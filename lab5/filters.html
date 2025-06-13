@@ -36,7 +36,12 @@
         let value = document.getElementById('grayscaleValue').value + '%';
         document.getElementById('grayscaleOutput').innerText = value;
         document.getElementById('grayscaleImage').style.filter = 'grayscale(' + value +')';
-         }
+        }
+        function hueRotateChange(){
+        let value = document.getElementById('hueRotateValue').value + 'deg';
+        document.getElementById('hueRotateOutput').innerText = value;
+        document.getElementById('hueRotateImage').style.filter = 'hue-rotate(' + value +')';
+        }
     </script>
     <style>
         header {
@@ -74,12 +79,17 @@
         </div>
         <div><img src="котрэпер.jpg" id="contrastImage"></div>
         <div>
-            grayscale:
+            Grayscale:
             <input type="range" value="0" min="0" max="100" step="1" onchange="grayscaleChange()" id="grayscaleValue">
             <span id="grayscaleOutput"></span>
         </div>
         <div><img src="котрэпер.jpg" id="grayscaleImage"></div>
-
+        <div>
+            Hue-rotate:
+            <input type="range" value="0" min="0" max="360" step="1" onchange="hueRotateChange()" id="hueRotateValue">
+            <span id="hueRotateOutput"></span>
+        </div>
+        <div><img src="котрэпер.jpg" id="hueRotateImage"></div>
     </main>
 
     <footer ondblclick="showFooter()">
