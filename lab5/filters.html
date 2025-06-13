@@ -27,6 +27,11 @@
         document.getElementById('brightnessOutput').innerText = value;
         document.getElementById('brightnessImage').style.filter = 'brightness(' + value +')';
         }
+        function contrastChange(){
+        let value = document.getElementById('contrastValue').value + '%';
+        document.getElementById('contrastOutput').innerText = value;
+        document.getElementById('contrastImage').style.filter = 'contrast(' + value +')';
+        }
     </script>
     <style>
         header {
@@ -44,22 +49,26 @@
     
     <main>
         <div>
-            Фильтр Blur:
+            Blur:
             <input type="range"  value="0" min="0" max="20" onchange="blurChange()" id="blurValue">
             <span id="blurOutput"></span>
         </div>
         <div><img src="котрэпер.jpg" id="blurImage"></div>
 
-        <div>More actions
-            brightness:
-            <input type="range" value="100" min="0" max="300" step="1" onchange="brightnessChange()" id="brightnessValue">
+        <div>
+            Brightness:
+            <input type="range" value="100" min="20" max="300" step="1" onchange="brightnessChange()" id="brightnessValue">
             <span id="brightnessOutput"></span>
         </div>
         <div><img src="котрэпер.jpg" id="brightnessImage"></div>
-    </main>
-    
-    </main>
 
+        <div>
+            Contrast:
+            <input type="range" value="100" min="10" max="300" step="1" onchange="contrastChange()" id="contrastValue">
+            <span id="contrastOutput"></span>
+        </div>
+        <div><img src="котрэпер.jpg" id="contrastImage"></div>
+    </main>
 
     <footer ondblclick="showFooter()">
         &copy; Коенв Станислав, ФБИ-34, 2 курс, 2025
