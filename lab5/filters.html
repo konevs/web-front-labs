@@ -42,6 +42,21 @@
         document.getElementById('hueRotateOutput').innerText = value;
         document.getElementById('hueRotateImage').style.filter = 'hue-rotate(' + value +')';
         }
+        function invertChange(){
+             let value = document.getElementById('invertValue').value + '%';
+             document.getElementById('invertOutput').innerText = value;
+             document.getElementById('invertImage').style.filter = 'invert(' + value +')';
+         }
+         function saturateChange(){
+             let value = document.getElementById('saturateValue').value + '%';
+             document.getElementById('saturateOutput').innerText = value;
+             document.getElementById('saturateImage').style.filter = 'saturate(' + value +')';
+         }
+         function sepiaChange(){
+             let value = document.getElementById('sepiaValue').value + '%';
+             document.getElementById('sepiaOutput').innerText = value;
+             document.getElementById('sepiaImage').style.filter = 'sepia(' + value +')';
+         }
     </script>
     <style>
         header {
@@ -90,6 +105,24 @@
             <span id="hueRotateOutput"></span>
         </div>
         <div><img src="котрэпер.jpg" id="hueRotateImage"></div>
+        <div>
+            Invert:
+            <input type="range" value="0" min="0" max="100" step="1" onchange="invertChange()" id="invertValue">
+            <span id="invertOutput"></span>
+        </div>
+        <div><img src="котрэпер.jpg" id="invertImage"></div>
+        <div>
+            Saturate:
+            <input type="range" value="100" min="0" max="300" step="1" onchange="saturateChange()" id="saturateValue">
+            <span id="saturateOutput"></span>
+        </div>
+        <div><img src="котрэпер.jpg" id="saturateImage"></div>
+        <div>
+            Sepia:
+            <input type="range" value="0" min="0" max="100" step="1" onchange="sepiaChange()" id="sepiaValue">
+            <span id="sepiaOutput"></span>
+            <div><img src="котрэпер.jpg" id="sepiaImage"></div>
+        </div>
     </main>
 
     <footer ondblclick="showFooter()">
