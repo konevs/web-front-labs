@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конев Станислав Сергеевич. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nКонев Станислав Сергеевич';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'таровчэк,,,'
+            alert(footer);
+        }
+        function showDate() {
+            let out = document.getElementById('current-date');
+            let today = new Date();
+            out.innerHTML = today.toLocaleDateString('ru-RU');
+            document.getElementById("locale-ru").textContent = "Россия (ru-RU): " + today.toLocaleString('ru-RU');
+            document.getElementById("locale-es").textContent = "Spanish (Ecuador): " + today.toLocaleString('es-EC');
+            document.getElementById("locale-it").textContent = "Italian: " + today.toLocaleString('it');
+            document.getElementById("locale-nl").textContent = "Dutch (Belgium): " + today.toLocaleString('nl-BE');
+            document.getElementById("locale-sv").textContent = "Swedish (Finland): " + today.toLocaleString('sv-FI');
+        }
+    </script>
+    <style>
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        #current-date {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: rgb(11, 56, 145);
+        }
+        .locale-block {
+            margin: 15px 0;
+            font-size: 18px;
+            color: black;
+        }
+    </style>
+</head>
+<body onload="showDate()">
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>   
+    
+    <main>
+        <div id="current-date"></div>
+        <div class="locale-block" id="locale-ru"></div>
+        <div class="locale-block" id="locale-es"></div>
+        <div class="locale-block" id="locale-it"></div>
+        <div class="locale-block" id="locale-nl"></div>
+        <div class="locale-block" id="locale-sv"></div>
+    </main>
+
+    <footer ondblclick="showFooter()">
+        &copy; Конев Станислав, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
